@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729190715) do
+ActiveRecord::Schema.define(version: 20160729222518) do
+
+  create_table "places", force: :cascade do |t|
+    t.float    "lat",         limit: 30, null: false
+    t.float    "lng",         limit: 30, null: false
+    t.string   "name",                   null: false
+    t.string   "description"
+    t.string   "image",                  null: false
+    t.string   "open_time",              null: false
+    t.string   "close_time"
+    t.string   "price",                  null: false
+    t.string   "promo_text"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",                   null: false

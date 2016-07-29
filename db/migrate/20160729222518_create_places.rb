@@ -1,8 +1,8 @@
 class CreatePlaces < ActiveRecord::Migration[5.0]
   def change
     create_table :places do |t|
-      t.double :lat, null: false
-      t.double :lng, null: false
+      t.float :lat,  :limit => 30, null: false
+      t.float :lng, :limit => 30, null: false
       t.string :name, null: false
       t.string :description
       t.string :image, null: false
