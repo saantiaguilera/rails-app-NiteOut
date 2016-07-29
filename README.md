@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # README
 
 This README would normally document whatever steps are necessary to get the
@@ -22,3 +23,7 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+=======
+# rails-app-NiteOut
+Backend for an application that searchs for bars/dance places
+>>>>>>> 6bbc0c78e62656c67c2650194156d71e29beb3b5
