@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :places, only: [:index, :create, :destroy, :update]
 
+  resources :users, only: [:create]
+
 end

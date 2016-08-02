@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160729222518) do
+ActiveRecord::Schema.define(version: 20160802191606) do
 
   create_table "places", force: :cascade do |t|
     t.float    "lat",         limit: 30, null: false
@@ -27,13 +27,10 @@ ActiveRecord::Schema.define(version: 20160729222518) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",                   null: false
-    t.string   "email"
-    t.integer  "age"
-    t.boolean  "admin",      default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "gender"
+    t.string   "device_id",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["device_id"], name: "index_users_on_device_id", unique: true
   end
 
 end
