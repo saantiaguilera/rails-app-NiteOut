@@ -1,5 +1,7 @@
 class PlacesController < ApplicationController
 
+  before_action :set_place, only: [:destroy, :update]
+
   def index
     render json: Place.all
   end
@@ -10,7 +12,6 @@ class PlacesController < ApplicationController
   end
 
   def destroy
-    @place = Place.find_by_id params[:id]
     @place.destroy!
     render json: {
         message: "#{@place.name} was successfully deleted"
@@ -18,7 +19,6 @@ class PlacesController < ApplicationController
   end
 
   def update
-    @place = Place.find_by_id params[:id]
     @place.update! place_params
     render json: @place
   end
@@ -27,6 +27,12 @@ class PlacesController < ApplicationController
 
   def place_params
     params.require(:place).permit(:lat, :lng, :name, :description, :image, :open_time, :close_time, :price, :promo_text)
+  end
+
+  def set_place
+    @place ||= Place.find_by_id params[:id]
+
+    render status: 404 unless @place.present?
   end
 
 end
