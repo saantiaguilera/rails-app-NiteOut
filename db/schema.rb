@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160802191606) do
+ActiveRecord::Schema.define(version: 20160802192828) do
 
   create_table "places", force: :cascade do |t|
     t.float    "lat",         limit: 30, null: false
@@ -30,7 +30,9 @@ ActiveRecord::Schema.define(version: 20160802191606) do
     t.string   "device_id",  null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "place_id"
     t.index ["device_id"], name: "index_users_on_device_id", unique: true
+    t.index ["place_id"], name: "index_users_on_place_id"
   end
 
 end
